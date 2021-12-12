@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const res = require('express/lib/response');
 const { Blogpost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
@@ -20,6 +21,23 @@ router.post('/', withAuth, async (req, res) => {
     });
 
     res.status(200).json(newBlogpost);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  try {
+    const updateBlogpost = await Blogpost.update({
+      name: req.body.name,
+      description: req.body.description
+    },
+      {
+        where: {
+          id: req.params.id
+        }
+      });
+    res.status(200).json(updateBlogpost);
   } catch (err) {
     res.status(400).json(err);
   }
