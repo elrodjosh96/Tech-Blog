@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {Comment, Blogpost} = require('../../models');
 
+
 router.get('/:post_id', async (req, res) =>{
     try {
         const commentData = await Blogpost.findByPk(req.session.id, {
