@@ -2,11 +2,10 @@
 <div class="text-center">
   <h2>{{name}}</h2>
   <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <p>Created by {{User.name}} on {{format_date date_created}}</p>
   {{#if comments.length}}
   {{#each comments as |comment|}}
-  <p>{{comment.body}}</p>
-  <p>{{comment.username}}</p>
+  <p>{{comment.body}}, {{comment.User.name}}</p>
   {{/each}}
   {{/if}}
   <input type="text" id="comment"/>

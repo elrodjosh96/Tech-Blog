@@ -3,7 +3,7 @@ const commentBlog = async () => {
     console.log('hit2')
       const comment = document.querySelector('#comment').value.trim();
       const post = document.querySelector('#commentpost').value
-      console.log()
+      console.log(post)
         const response = await fetch(`/api/comments/`, {
           method: 'POST',
           body: JSON.stringify({body: comment, post_id: post }),

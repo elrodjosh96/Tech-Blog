@@ -20,17 +20,17 @@ Comment.init(
             allowNull: false,
             defaultValue: DataTypes.NOW
         },
-        username: {
+        user_id: {
             type: DataTypes.STRING,
             reference: {
                 model: 'user',
-                key: 'username'
+                key: 'id'
             }
         },
         post_id: {
             type: DataTypes.INTEGER,
             reference: {
-                model: 'post',
+                model: 'blogpost',
                 key: 'id'
             }
         },
